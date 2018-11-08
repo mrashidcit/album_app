@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.rashidsaleem.albumapp.R;
@@ -40,13 +41,18 @@ public class StudentAdapter extends ArrayAdapter<Student> {
 
         if (student != null) {
             TextView nameView, phoneNoView, addressView;
+            ImageView imageView;
+
+            imageView = (ImageView) v.findViewById(R.id.img_pic);
             nameView = (TextView) v.findViewById(R.id.tv_name);
             phoneNoView = (TextView) v.findViewById(R.id.tv_phone_no);
             addressView = (TextView) v.findViewById(R.id.tv_address);
 
+            imageView.setImageResource(student.getImageId());
             nameView.setText(student.getName());
             phoneNoView.setText(student.getPhoneNo());
             addressView.setText(student.getAddress());
+
 
         }
 

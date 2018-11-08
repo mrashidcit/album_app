@@ -13,6 +13,7 @@ public class Student() : Parcelable {
     var address: String = "";
     var socialMedia: HashMap<String, String> = HashMap<String, String>();
     var bestQuote: String = "";
+    var imageId: Int = 0
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readInt()
@@ -21,26 +22,51 @@ public class Student() : Parcelable {
         phoneNo = parcel.readString()
         address = parcel.readString()
         bestQuote = parcel.readString()
+        imageId = parcel.readInt()
     }
 
-    /**
+
+//    /**
+//     * @param id
+//     * @param name
+//     * @param picture
+//     * @param phoneNo
+//     * @param address
+//     * @param socialMedia
+//     * @param bestQuote
+//     */
+//    constructor(id: Int, name: String, picture: String, phoneNo: String, address: String, socialMedia: HashMap<String, String>, bestQuote: String) : this() {
+//        this.id = id
+//        this.name = name
+//        this.picture = picture
+//        this.phoneNo = phoneNo
+//        this.address = address
+//        this.socialMedia = socialMedia
+//        this.bestQuote = bestQuote
+//    }
+
+
+    /***
      * @param id
      * @param name
-     * @param picture
+     * @param imageId
      * @param phoneNo
      * @param address
      * @param socialMedia
      * @param bestQuote
+
      */
-    constructor(id: Int, name: String, picture: String, phoneNo: String, address: String, socialMedia: HashMap<String, String>, bestQuote: String) : this() {
+    constructor(id: Int, name: String, imageId: Int, phoneNo: String, address: String, socialMedia: HashMap<String, String>, bestQuote: String) : this() {
         this.id = id
         this.name = name
-        this.picture = picture
+        this.imageId = imageId
         this.phoneNo = phoneNo
         this.address = address
         this.socialMedia = socialMedia
         this.bestQuote = bestQuote
     }
+
+
 
     // Getter Methods
     public fun  getSocialMediaInStringFormat(): String {
@@ -73,6 +99,7 @@ public class Student() : Parcelable {
         parcel.writeString(phoneNo)
         parcel.writeString(address)
         parcel.writeString(bestQuote)
+        parcel.writeInt(imageId)
     }
 
     override fun describeContents(): Int {
